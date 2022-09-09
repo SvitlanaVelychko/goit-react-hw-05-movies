@@ -14,10 +14,11 @@ export const theme = {
         s: '14px',
         m: '18px',
         l: '24px',
-        xl: '32px',
+        xl: '40px',
     },
     fontWeights: {
         normal: 400,
+        tailwind: 500,
         bold: 700,
     },
     borders: {
@@ -26,7 +27,7 @@ export const theme = {
     },
     radii: {
         none: '0',
-        normal: '2px',
+        normal: '8px',
         round: '50%',
     },
 };
