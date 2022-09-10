@@ -11,9 +11,9 @@ const MoviesGallery = ({ movies }) => {
         <Box>
             <MovieList>
                 {movies.map(movie => {
-                    return(
+                    return (
                         <MovieItem key={movie.id}>
-                            <Card to={`movies/${movie.id}`} state={{ from: location }}>
+                            <Card to={`/movies/${movie.id}`} state={{ from: location }}>
                                 <MovieCard movie={movie} />
                             </Card>
                         </MovieItem>

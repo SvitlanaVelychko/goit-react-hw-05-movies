@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMovieCast } from 'services/api';
+import { fetchMovieReviews } from 'services/api';
 import { Box } from 'components/Box';
+import { ReviewList, ReviewItem } from './Reviews.styled';
 
 const Reviews = () => {
-    const { movieId } = useParams();
     const [reviews, setReviews] = useState([]);
+    const { movieId } = useParams();
 
     useEffect(() => {
-        (async function getCast() {
+        (async function getReviews() {
             try {
-                const reviewsInfo = await fetchMovieCast(movieId);
+                const reviewsInfo = await fetchMovieReviews(movieId);
                 setReviews(reviewsInfo);
             } catch (error) {
                 console.log(error);
@@ -20,17 +21,18 @@ const Reviews = () => {
 
     return (
         <Box>
-            {!reviews.lenth > 0 ? (<p>No reviews</p>) :
-                (<ul>
-                    {reviews.map(({ id, author, author_details: {rating}, content, created_at }) => (
-                        <li key={id}>
-                            <p>Author: {author}</p>
-                            <p>Rating: {rating ? rating : 'No rating'}</p>
-                            <p>Content: {content}</p>
-                            <p>Created at: {new Date(created_at).toLocaleDateString('en-US')}</p>
-                        </li>
-                    ))}
-                </ul>)}
+            <ReviewList>
+                {reviews.length > 0 ? (
+                    reviews.map(({ id, author, author_details: { rating }, content, created_at }) => {
+                        return (<ReviewItem key={id}>
+                            <p><b>Author:</b> {author}</p>
+                            <p><b>Rating:</b> {rating ? rating : 'No rating'}</p>
+                            <p><b>Content:</b> {content}</p>
+                            <p><b>Created at:</b> {new Date(created_at).toLocaleDateString('en-US')}</p>
+                        </ReviewItem>
+                        );
+                    })) : (<b>There are no reviews at this movie</b>)}
+            </ReviewList>
         </Box>
     );
 };

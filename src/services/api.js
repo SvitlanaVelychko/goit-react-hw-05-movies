@@ -23,7 +23,7 @@ export const fetchSearchMovies = async query => {
                 include_adult: false,
             },
         });
-        return response.data;
+        return response.data.results;
     } catch (error) {
         console.log(error);
     }
@@ -41,7 +41,7 @@ export const fetchMovieById = async movieId => {
 export const fetchMovieCast = async movieId => {
     try {
         const response = await axios.get(`movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`);
-        return response.data;
+        return response.data.cast;
     } catch (error) {
         console.log(error);
     }
@@ -49,8 +49,8 @@ export const fetchMovieCast = async movieId => {
 
 export const fetchMovieReviews = async movieId => {
     try {
-        const response = await axios.get(`movie/${movieId}/review?api_key=${API_KEY}&language=en-US&page=1`);
-        return response.data;
+        const response = await axios.get(`movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`);
+        return response.data.results;
     } catch (error) {
         console.log(error);
     }

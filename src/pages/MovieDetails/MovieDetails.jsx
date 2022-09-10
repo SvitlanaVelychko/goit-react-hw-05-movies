@@ -3,7 +3,15 @@ import { useState, useEffect, Suspense } from "react";
 import { fetchMovieById } from "services/api";
 import { Box } from "components/Box";
 import BackLink from 'components/BackLink';
-import { StyledLink, MovieInfo, ImageWrapper, Content, MovieName, MovieAddInfo, MovieAddList } from "./MovieDetails.styled";
+import {
+    StyledLink,
+    MovieInfo,
+    ImageWrapper,
+    Content,
+    MovieName,
+    MovieAddInfo,
+    MovieAddList
+} from "./MovieDetails.styled";
 import { IMG_PATH } from "constant/constant";
 import Loader from "components/Loader/Loader";
 
