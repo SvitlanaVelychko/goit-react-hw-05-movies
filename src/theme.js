@@ -3,6 +3,7 @@ export const theme = {
         black: '#000',
         white: '#fff',
         accent: '#ff4d00',
+        bgc: '#c5c5c5',
     },
     space: [0, 2, 4, 8, 16, 24, 32, 64, 128, 256],
     fonts: {

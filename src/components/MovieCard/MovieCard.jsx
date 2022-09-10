@@ -1,9 +1,8 @@
+import PropTypes from 'prop-types';
+import { IMG_PATH, DEFAULT_IMG } from 'constant/constant';
 import { MovieCardImage, MovieCardContent, MovieCardTitle, MovieRating } from "./MovieCard.styled";
 
 const MovieCard = ({ movie: { title, poster_path, vote_average: rating } }) => {
-    const IMG_PATH = 'https://image.tmdb.org/t/p/w500/';
-    const DEFAULT_IMG ='https://yt3.ggpht.com/AAKF_677TIvjFz_9xFF0R6PgiVd0kRpEtY6APSxSDRP65nXg8hkn9NFsz2bRd9_Z37DJ9D_b=s900-c-k-c0x00ffffff-no-rj';
-
     return (
         <>
             <MovieCardImage
@@ -17,6 +16,14 @@ const MovieCard = ({ movie: { title, poster_path, vote_average: rating } }) => {
             </MovieCardContent>
         </>
     );
+};
+
+MovieCard.propTypes = {
+    movie: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        poster_path: PropTypes.string,
+        vote_average: PropTypes.number,
+    }).isRequired,
 };
 
 export default MovieCard;

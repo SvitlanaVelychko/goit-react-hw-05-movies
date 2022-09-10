@@ -5,8 +5,8 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     justify-content: start;
-    padding-right: ${p => p.theme.space[4]}px;
-    padding-left: ${p => p.theme.space[4]}px;
+    padding-right: ${p => p.theme.space[6]}px;
+    padding-left: ${p => p.theme.space[6]}px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
 `;
 
